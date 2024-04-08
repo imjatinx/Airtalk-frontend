@@ -1,4 +1,21 @@
-.main-wrapper{
+.dark{
+    background: #061d19 !important;
+}
+
+.dark-color{
+    color: white !important;
+}
+
+.dark-btn{
+    color: white !important;
+}
+
+.dark-inputs{
+    background-color: #061d19 !important;
+    color: white !important;
+}
+
+.main-wrapper {
     background-color: #f6efef;
     height: 90vh;
     width: 90vw;
@@ -6,18 +23,15 @@
     border-radius: 20px;
 }
 
-.sidebar-wrapper{
-    flex-grow: 0.1;
+/* SIDEBAR DESIGN - LEFT */
+.sidebar-wrapper {
+    flex-grow: 0.2;
     display: flex;
     flex-direction: column;
 }
 
-.chat-area-wrapper{
-    background-color: aliceblue;
-    flex-grow: 0.9;
-}
-
-.sb-header{
+/* SIDEBAR - HEADER */
+.sb-header {
     display: flex;
     justify-content: space-between;
     background-color: white;
@@ -26,7 +40,8 @@
     padding: 10px 5px;
 }
 
-.sb-search{
+/* SIDEBAR - SEARCH BAR */
+.sb-search {
     display: flex;
     align-items: center;
     background-color: white;
@@ -35,14 +50,16 @@
     padding: 10px 5px;
 }
 
-.search-box{
+/* SIDEBAR - SEARCH BAR INPUT-BOX */
+.search-box {
     outline: none;
     border: none;
     font-size: 1.2rem;
-    width: 100%;    
+    width: 100%;
 }
 
-.sb-conversations{
+/* SIDEBAR - CONVERSATIONS */
+.sb-conversations {
     background-color: white;
     border-radius: 20px;
     margin: 10px;
@@ -50,15 +67,92 @@
     flex-grow: 1;
 }
 
-.conversation-wrapper{
+/* SIDEBAR - CONVERSATION SINGLE ITEM */
+.conversation-wrapper {
     border-radius: 20px;
     margin: 10px;
     padding: 10px 5px;
-    display: flex;
+    display: grid;
+    grid-template-columns: 32px auto auto;
+    grid-template-rows: auto auto;
+    column-gap: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: all 100ms ease;
 }
 
-.con-icon{
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+.conversation-wrapper:hover{
+    background: #525050;
+    cursor: pointer;
+}
+
+/* SIDEBAR - CONVERSATION ITEM ICON */
+.conversation-icon {
+    grid-area: 1 / 1 / 3 / 2;
+    font-size: 1.7rem;
+    background: #e0dcdc;
+    color: white;
+    font-weight: bold;
+    height: 32px;
+    width: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+.conversation-wrapper:hover > .conversation-icon{
+    background: white;
+    color: black;
+}
+
+.conversation-wrapper:hover > .conversation-title{
+    color: black;
+}
+
+.conversation-wrapper:hover > .conversation-lastMassage{
+    color: #525050;
+}
+
+/* SIDEBAR - CONVERSATION ITEM TITLE */
+.conversation-title {
+    grid-area: 1 / 2 / 2 / 4;
+    color: #525050;
+    font-size: 1.2rem;
+}
+
+/* SIDEBAR - CONVERSATION ITEM LAST MSG */
+.conversation-lastMassage {
+    font-size: 14px;
+    color: rgb(51, 51, 136);
+    font-weight: 900;
+}
+
+/* SIDEBAR - CONVERSATION ITEM TIMESTAMP */
+.conversation-timestamp {
+    font-size: 14px;
+    text-align: end;
+    color: #525050;
+}
+
+/* CHAT AREA DESIGN - RIGHT */
+.chat-area-wrapper {
+    flex-grow: 0.8;
+    display: flex;
+    flex-direction: column;
+}
+
+/* CHAT AREA - HEADER */
+.chat-area-header{
+    background-color: white;
+    border-radius: 20px;
+    margin: 10px;
+    padding: 10px 10px;
+    display: flex;
+    column-gap: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+/* CHAT AREA - HEADER ICON */
+.chat-header-icon{
     font-size: 1.7rem;
     background-color: #e0dcdc;
     color: white;
@@ -71,8 +165,166 @@
     border-radius: 50%;
 }
 
-.con-title{
+/* CHAT AREA - HEADER TEXT */
+.chat-header-text{
+    font-size: 16px;
+    flex: 1;
+}
+
+/* CHAT AREA - HEADER TITLE/NAME */
+.chat-header-title{
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* CHAT AREA - HEADER STATUS */
+.chat-header-online{
+    font-size: 14px;
+    color: #525050;
+}
+
+/* CHAT AREA - CHAT INPUT BAR */
+.chat-input-wrapper{
+    background-color: white;
+    border-radius: 20px;
+    margin: 10px;
+    padding: 10px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* CHAT AREA - CHAT INPUT BOX */
+.chat-box{
+    font-size: 12px;
+    color: #525050;
+    outline: none;
+    padding: 0 10px;
+    border: none;
+    font-size: 1.2rem;
+    width: 100%;
+}
+
+.chat-message-wrapper{
+    background-color: white;
+    border-radius: 20px;
+    margin: 10px;
+    padding: 10px 5px;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    flex: 1;
+    overflow-y: scroll;
+}
+
+.chat-message-wrapper::-webkit-scrollbar{
+    display: none;
+}
+
+.outgoing-message-wrapper{
+    display: flex;
+    column-gap: 10px;
+    padding: 10px;
+    margin: 20px 0;
+    justify-content: flex-end;
+}
+
+.outgoing-message-box{
+    background-color: rgb(135, 225, 135);
+    border-radius: 10px;
+    padding: 10px;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+}
+
+.outgoing-message-text{
+    word-wrap: break-word;
+    color: #1a1919;
+    font-size: 14px;
+}
+
+.outgoing-message-timestamp{
+    font-size: 12px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.incoming-message-wrapper{
+    display: flex;
+    column-gap: 10px;
+    padding: 10px;
+    margin: 20px 0;
+    justify-content: flex-start;
+}
+
+.incoming-message-box{
+    background-color: #e0dcdc;
+    border-radius: 10px;
+    padding: 10px;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+}
+
+.incoming-message-title{
+    color: #525050;
+    word-wrap: break-word;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.incoming-message-text{
+    word-wrap: break-word;
+    color: #1a1919;
+    font-size: 14px;
+}
+
+.incoming-message-timestamp{
+    font-size: 12px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.welcome-wrapper{
+    flex-grow: 0.8;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.welcome-content{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    column-gap: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.welcome-img{
+    height: auto;
+    width: 250px;
+}
+
+.welcome-text{
+    color: #525050;
+}
+
+.login-wrapper{
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 15px;
+    flex-direction: column;
+}
+
+.login-text{
+    font-size: 22px;
+    font-weight: 900;
+    margin-bottom: 15px;
+    color: #1a1919;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }

@@ -1,12 +1,14 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
-function ConversationItem({props}) {
+function ConversationItem({ props, dark }) {
+  const navigate = useNavigate()
   return (
-    <div className='conversation-wrapper'>
-      <p className='con-icon'>{props.name[0]}</p>
-      <p className='con-title'>{props.name}</p>
-      <p className='con-lastMassage'>{props.lastMessage}</p>
-      <p className='con-timestamp'>{props.timestamp}</p>
+    <div className='conversation-wrapper' onClick={() => { navigate("chat") }}>
+      <p className={`conversation-icon ${dark ? 'dark' : ''}`} conversation>{props.name[0]}</p>
+      <p className={`conversation-title ${dark ? 'dark-color' : ''}`}>{props.name}</p>
+      <p className={`conversation-lastMassage ${dark ? 'dark-color' : ''}`}>{props.lastMessage}</p>
+      <p className={`conversation-timestamp ${dark ? 'dark-color' : ''}`}>{props.timestamp}</p>
     </div>
   )
 }
